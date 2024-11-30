@@ -1,5 +1,5 @@
-import { User } from './database';
-import bcrypt from 'bcryptjs';  // Se você for usar o bcrypt
+import { User } from '../models/User';
+import bcrypt from 'bcryptjs'; 
 import { Request, Response } from 'express';
 
 export const login = async (req: Request, res: Response): Promise<void> => {
