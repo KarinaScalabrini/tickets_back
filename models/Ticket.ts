@@ -25,8 +25,8 @@ export class Ticket extends Model<TicketAttributes> implements TicketAttributes 
   public id_state!: number;
   public observation!: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  public readonly created_at!: Date;
+  public readonly updated_at!: Date;
 
   public static initialize(sequelize: Sequelize) {
     Ticket.init(

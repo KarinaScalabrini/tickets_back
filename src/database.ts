@@ -4,7 +4,7 @@ import { Department } from '../models/Department';
 import { State } from '../models/State';
 import { Ticket } from '../models/Ticket';
 
-const sequelize = new Sequelize('database', 'username', 'password', {
+const sequelize = new Sequelize('tickets_management', 'root', '123!@#', {
   host: 'localhost',
   dialect: 'mysql', 
 });

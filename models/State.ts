@@ -9,8 +9,8 @@ export class State extends Model<StateAttributes> implements StateAttributes {
   public id!: number;
   public title!: string;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
+  public readonly created_at!: Date;
+  public readonly updated_at!: Date;
 
   public static initialize(sequelize: Sequelize) {
     State.init(

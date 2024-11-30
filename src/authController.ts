@@ -13,14 +13,12 @@ export const login = async (req: Request, res: Response): Promise<void> => {
       return;
     }
 
-    // Verifica se a senha fornecida corresponde à armazenada no banco
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid) {
       res.status(401).json({ message: 'Senha inválida' });
       return;
     }
 
-    // Retorna resposta com sucesso e informações do usuário
     res.json({ message: 'Login bem-sucedido', user });
   } catch (error) {
     console.error('Erro no login:', error);

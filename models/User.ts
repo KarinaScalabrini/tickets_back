@@ -18,9 +18,6 @@ export class User extends Model<UserAttributes> implements UserAttributes {
   public id_department!: number;
   public admin!: boolean;
 
-  public readonly createdAt!: Date;
-  public readonly updatedAt!: Date;
-
   public static initialize(sequelize: Sequelize) {
     User.init(
       {
@@ -63,7 +60,7 @@ export class User extends Model<UserAttributes> implements UserAttributes {
         sequelize,
         tableName: 'Users',
         modelName: 'User',
-        timestamps: true, // Adiciona createdAt e updatedAt automaticamente
+        timestamps: false,
       }
     );
   }
