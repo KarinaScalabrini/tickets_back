@@ -1,6 +1,8 @@
 import express, { Request, Response } from 'express';
 import { sequelize } from './database';
 import { login } from './authController';
+import DepartmentController from '../controllers/DepartmentsController';
+import UsersController from '../controllers/UsersController';
 import cors from 'cors';
 
 const app = express();
@@ -13,12 +15,6 @@ app.use(cors({
     allowedHeaders: ['Content-Type', 'Authorization'],
 }));
 
-app.post('/login', login);
-
-app.get('/', (req: Request, res: Response) => {
-    res.send('Servidor está rodando!');
-});
-
 app.listen(PORT, async () => {
     try {
         await sequelize.authenticate();
@@ -27,4 +23,13 @@ app.listen(PORT, async () => {
     } catch (error) {
         console.error('Não foi possível conectar ao banco de dados:', error);
     }
+});
+
+app.post('/login', login);
+app.get('/departments', (req: Request, res: Response) => {
+    DepartmentController.getAll(req, res);
+
+});
+app.put('/users/:id', (req: Request, res: Response) => {
+    UsersController.updateUser(req, res);
 });

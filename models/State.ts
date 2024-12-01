@@ -30,7 +30,7 @@ export class State extends Model<StateAttributes> implements StateAttributes {
         sequelize,
         tableName: 'states',
         modelName: 'State',
-        timestamps: true, 
+        timestamps: false, 
       }
     );
   }

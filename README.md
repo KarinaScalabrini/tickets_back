@@ -6,3 +6,6 @@ npx sequelize-cli db:migrate
 
 # Executar os seeders
 npx sequelize-cli db:seed:all
+
+#teste.ti@gmail.com
+#senha123

@@ -30,7 +30,7 @@ export class Department extends Model<DepartmentAttributes> implements Departmen
         sequelize,
         tableName: 'Departments',
         modelName: 'Department',
-        timestamps: true, 
+        timestamps: false, 
       }
     );
   }
