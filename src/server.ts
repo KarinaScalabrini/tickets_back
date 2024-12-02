@@ -3,6 +3,8 @@ import { sequelize } from './database';
 import { login } from './authController';
 import DepartmentController from '../controllers/DepartmentsController';
 import UsersController from '../controllers/UsersController';
+import TicketsController from '../controllers/TicketsController';
+import StateController from '../controllers/StateController';
 import cors from 'cors';
 
 const app = express();
@@ -32,4 +34,19 @@ app.get('/departments', (req: Request, res: Response) => {
 });
 app.put('/users/:id', (req: Request, res: Response) => {
     UsersController.updateUser(req, res);
+});
+app.post('/ticket', (req: Request, res: Response) => {
+    TicketsController.createTicket(req, res);
+});
+app.get('/tickets/:userId', (req: Request, res: Response) => {
+    TicketsController.getAll(req, res);
+});
+app.get('/ticket/:id', (req: Request, res: Response) => {
+    TicketsController.getTicket(req, res);
+});
+app.put('/ticket/:id', (req: Request, res: Response) => {
+    TicketsController.updateTicket(req, res);
+});
+app.get('/states', (req: Request, res: Response) => {
+    StateController.getAll(req, res);
 });

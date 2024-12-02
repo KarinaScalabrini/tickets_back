@@ -42,8 +42,15 @@ module.exports = {
           key: 'id'
         }
       },
-      observation: {
+      observacao: {
         type: Sequelize.STRING
+      },
+      id_department: {
+        type: Sequelize.INTEGER,
+        references: {
+          model: 'departments',
+          key: 'id'
+        }
       },
     });
   },

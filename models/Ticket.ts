@@ -1,6 +1,7 @@
 import { Model, DataTypes, Sequelize } from 'sequelize';
 import { User } from './User';
 import { State } from './State';
+import { Department } from './Department';
 
 interface TicketAttributes {
   id: number;
@@ -11,7 +12,8 @@ interface TicketAttributes {
   created_by: number;
   updated_by: number;
   id_state: number;
-  observation: string;
+  observacao: string;
+  id_department: number;
 }
 
 export class Ticket extends Model<TicketAttributes> implements TicketAttributes {
@@ -23,7 +25,8 @@ export class Ticket extends Model<TicketAttributes> implements TicketAttributes 
   public created_by!: number;
   public updated_by!: number;
   public id_state!: number;
-  public observation!: string;
+  public observacao!: string;
+  public id_department!: number;
 
   public readonly created_at!: Date;
   public readonly updated_at!: Date;
@@ -79,10 +82,18 @@ export class Ticket extends Model<TicketAttributes> implements TicketAttributes 
             key: 'id',
           },
         },
-        observation: {
+        observacao: {
           type: DataTypes.STRING,
           allowNull: true,
         },
+        id_department: { 
+          type: DataTypes.INTEGER,
+          allowNull: false,
+          references: {
+            model: 'departments',
+            key: 'id',
+          },
+        }
       },
       {
         sequelize,
@@ -98,5 +109,6 @@ export class Ticket extends Model<TicketAttributes> implements TicketAttributes 
     Ticket.belongsTo(User, { foreignKey: 'created_by', as: 'creator' });
     Ticket.belongsTo(User, { foreignKey: 'updated_by', as: 'updater' });
     Ticket.belongsTo(State, { foreignKey: 'id_state', as: 'state' });
-  }
+    Ticket.belongsTo(Department, { foreignKey: 'id_department', as: 'department' });
+}
 }

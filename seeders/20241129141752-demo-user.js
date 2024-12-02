@@ -6,12 +6,20 @@ module.exports = {
 
     await queryInterface.bulkInsert('users', [
       {
-        name: 'teste',
+        name: 'Admin',
         email: 'teste.ti@gmail.com',
         password: hashedPassword,
         id_department: 1,
         admin: true,
       },
+      {
+        name: 'Colaborador',
+        email: 'colab@gmail.com',
+        password: hashedPassword,
+        id_department: 1,
+        admin: false,
+      }
+
     ]);
   },
 
