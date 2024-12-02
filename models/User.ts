@@ -51,7 +51,7 @@ export class User extends Model<UserAttributes> implements UserAttributes {
           onDelete: 'CASCADE',
         },
         admin: {
-          type: DataTypes.BOOLEAN,
+          type: DataTypes.NUMBER,
           allowNull: false,
           defaultValue: false,
         },
