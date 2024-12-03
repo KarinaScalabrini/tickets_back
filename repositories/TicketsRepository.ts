@@ -103,5 +103,23 @@ export default class TicketsRepository {
 
         return ticket;
     }
+    public async findAllTickets(): Promise<Ticket[]> {
+        const tickets = await Ticket.findAll({
+            include: [
+                {
+                    model: Department,
+                    as: 'department',
+                    attributes: ['title']
+                },
+                {
+                    model: State,
+                    as: 'state',
+                    attributes: ['title']
+                }
+            ]
+        });
+
+        return tickets;
+    }
 
 }

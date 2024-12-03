@@ -12,7 +12,7 @@ export default class TicketsController {
             res.status(500).json({ message: error });
         }
     }
-    static async getAll(req: Request, res: Response) {
+    static async getTickets(req: Request, res: Response) {
         try {
             const { userId } = req.params;
             const ticketRepository = new TicketRepository();
@@ -48,6 +48,15 @@ export default class TicketsController {
             const ticketRepository = new TicketRepository();
             const ticket = await ticketRepository.findTicket({id});
             res.status(200).json(ticket);
+        } catch (error) {
+            res.status(500).json({ message: error });
+        }
+    }
+    static async getAll(req: Request, res: Response) {
+        try {
+            const ticketRepository = new TicketRepository();
+            const tickets = await ticketRepository.findAllTickets();
+            res.status(200).json(tickets);
         } catch (error) {
             res.status(500).json({ message: error });
         }

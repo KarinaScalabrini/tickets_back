@@ -28,6 +28,10 @@ app.listen(PORT, async () => {
 });
 
 app.post('/login', login);
+
+/**CRIAR UM MIDDLEWARE DE AUTENTICAÇÃO DO TOKEN ENVIADO PELO FRONTEND, PARA PROTEGER AS ROTAS ABAIXO
+ * BY: Karina Scalabrini
+ */
 app.get('/departments', (req: Request, res: Response) => {
     DepartmentController.getAll(req, res);
 
@@ -39,6 +43,9 @@ app.post('/ticket', (req: Request, res: Response) => {
     TicketsController.createTicket(req, res);
 });
 app.get('/tickets/:userId', (req: Request, res: Response) => {
+    TicketsController.getTickets(req, res);
+});
+app.get('/tickets', (req: Request, res: Response) => {
     TicketsController.getAll(req, res);
 });
 app.get('/ticket/:id', (req: Request, res: Response) => {

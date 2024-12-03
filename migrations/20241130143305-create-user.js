@@ -26,7 +26,7 @@ module.exports = {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
-          model: 'Departments',
+          model: 'departments',
           key: 'id'
         },
         onUpdate: 'CASCADE',
@@ -34,7 +34,7 @@ module.exports = {
       },
       admin: {
         allowNull: false,
-        type: Sequelize.Number,
+        type: Sequelize.BOOLEAN,
         defaultValue: false
       }
     });

@@ -16,7 +16,7 @@ export class User extends Model<UserAttributes> implements UserAttributes {
   public email!: string;
   public password!: string;
   public id_department!: number;
-  public admin!: boolean;
+  public admin!: boolean; 
 
   public static initialize(sequelize: Sequelize) {
     User.init(
@@ -44,21 +44,21 @@ export class User extends Model<UserAttributes> implements UserAttributes {
           type: DataTypes.INTEGER,
           allowNull: false,
           references: {
-            model: 'Departments',
+            model: 'departments',
             key: 'id',
           },
           onUpdate: 'CASCADE',
           onDelete: 'CASCADE',
         },
         admin: {
-          type: DataTypes.NUMBER,
+          type: DataTypes.BOOLEAN, 
           allowNull: false,
           defaultValue: false,
         },
       },
       {
         sequelize,
-        tableName: 'Users',
+        tableName: 'users', 
         modelName: 'User',
         timestamps: false,
       }

@@ -1,33 +1,16 @@
-'use strict';
+'use strict'
 
-/** @type {import('sequelize-cli').Migration} */
 module.exports = {
-  async up (queryInterface, Sequelize) {
-    try {
-      await queryInterface.bulkInsert('departments', [
-        {
-          title: 'Information Technology',
-        },
-        {
-          title: 'Human Resources',
-        },
-        {
-          title: 'Finance',
-        },
-        {
-          title: 'Marketing',
-        }
-      ]);
-    } catch (error) {
-      console.error('Erro ao executar o seed:', error);
-    }
+  async up(queryInterface, Sequelize) {
+    await queryInterface.bulkInsert('departments', [
+      { id: 1, title: 'Desenvolvimento' },
+      { id: 2, title: 'Comercial' },
+      { id: 3, title: 'Financeiro' },
+      { id: 4, title: 'Recursos Humanos' },
+    ]);
   },
-  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('departments', {
-      title: {
-        [Sequelize.Op.in]: ['Information Technology', 'Human Resources', 'Finance', 'Marketing']
-      }
-    });
-  }
-  
+
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('departments', null, {});
+  },
 };

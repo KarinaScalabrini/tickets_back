@@ -28,7 +28,7 @@ export class Department extends Model<DepartmentAttributes> implements Departmen
       },
       {
         sequelize,
-        tableName: 'Departments',
+        tableName: 'departments',
         modelName: 'Department',
         timestamps: false, 
       }

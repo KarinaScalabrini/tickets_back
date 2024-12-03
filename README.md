@@ -1,4 +1,4 @@
-# Instalar o Sequelize CLI (se ainda não fez isso)
+# Instalar dependencias do projeto
 npm install sequelize-cli
 
 # Executar as migrations
@@ -7,5 +7,9 @@ npx sequelize-cli db:migrate
 # Executar os seeders
 npx sequelize-cli db:seed:all
 
-#teste.ti@gmail.com
-#senha123
+# usuários criados para acesso
+#user@example.com
+#userpassword
+
+#admin@example.com
+#adminpassword
